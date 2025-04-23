@@ -1,27 +1,35 @@
 const form = document.querySelector('.main');
 const list = document.querySelector('.main-div ul');
+const formInput = document.querySelector('.main input');
 
-const toDoListArray = [];
+
+let toDoListArray = [];
 
 let task;
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const input = document.querySelector('input').value;
     const id = crypto.randomUUID();
+    let input = formInput.value;
+
     task = new ToDoList(id, input, '');
     task.pushTaskInArray();
-    task.createListElement(id);
-    console.log(toDoListArray)
+    task.createListElement(id, input);
+    formInput.value = '';
 })
 list.addEventListener('click', (e) => {
-    const trash = e.target.closest('li');
+    const listId = e.target.closest('li').id;
+    const selectedList = e.target.closest('li');
     const removeBtn = e.target.closest('button');
-
-
-    // task.removeTask();
+    const checkBox = e.target.closest('input');
+  
+    if(removeBtn){
+        task.removeTask(listId);
+        list.removeChild(selectedList)
+    }
     
-    // list.removeChild(trash)
-    console.log(toDoListArray)
+    if(checkBox){
+        task.isTaskChecked(checkBox.checked, listId, selectedList);
+    }
 })
 

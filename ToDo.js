@@ -8,22 +8,28 @@ class ToDoList {
     pushTaskInArray(){
       toDoListArray.push(task);
     }
-    getSummary() {
-      return `Task is ${this.task}`
-    }
+  
+    isTaskChecked(checked, listId, selectedList){
+      let object = toDoListArray.find(task => task.id == listId);
+      object.isChecked = checked;
 
-    isTaskChecked(){
- 
+      if(object.isChecked){
+        selectedList.style.textDecoration = 'line-through';
+      }
+      else {
+        selectedList.style.textDecoration = '';
+      }
     }
-    createListElement(id){
+    
+    createListElement(id, input){
       let html = `
-      <li id="${id}"><p>Jogurt</p><input type="checkbox" class="checked"></input><button class="trash">🗑️</button></li>
+      <li id="${id}"><p>${input}</p><input type="checkbox" class="checked"></input><button class="trash">🗑️</button></li>
       `;
       list.insertAdjacentHTML('beforeend', html)
     }
 
-    removeTask(){
-        toDoListArray.filter(task => task.id != this.id);
+    removeTask(listId){
+      toDoListArray = toDoListArray.filter(task => task.id != listId);
     }
 }
 

@@ -1,22 +1,25 @@
 class ToDoList {
-    constructor(task, isChecked, trash){
+    constructor(id, task, isChecked){
+      this.id = id;
       this.task = task;
       this.isChecked = isChecked;
-      this.trash = trash;
-
-      this.removeTask();
+    
+    }
+    pushTaskInArray(){
+      toDoListArray.push(task);
     }
     getSummary() {
       return `Task is ${this.task}`
     }
 
     isTaskChecked(){
-
+ 
     }
-    
+    createListElement(){
+      
+    }
     removeTask(){
-        if(this.trash){
-            toDoListArray.filter(trash => trash != true);
-        }
+        toDoListArray.filter(task => task.id != this.id);
     }
 }
+

@@ -15,9 +15,13 @@ class ToDoList {
     isTaskChecked(){
  
     }
-    createListElement(){
-      
+    createListElement(id){
+      let html = `
+      <li id="${id}"><p>Jogurt</p><input type="checkbox" class="checked"></input><button class="trash">🗑️</button></li>
+      `;
+      list.insertAdjacentHTML('beforeend', html)
     }
+
     removeTask(){
         toDoListArray.filter(task => task.id != this.id);
     }

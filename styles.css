@@ -9,8 +9,7 @@ html {
 body {
     background-color: rgb(184, 255, 103);
 }
-.main {
-    text-align: center;
+.main-div {
     margin: 300px auto;
     width: 500px;
 }
@@ -21,10 +20,10 @@ body {
     border: none;
     border-radius: 10px 10px 0 0;
 }
-.main ul {
+.main-div ul {
     background-color: rgb(245, 255, 103);
 }
-.main li{
+.main-div li{
     display: flex;
     align-items: center;
     font-size: 2.5rem;
@@ -32,13 +31,20 @@ body {
     padding: 10px;
     border-top: 2px dashed rgb(186, 186, 186);
 }
-.main li p {
+.main-div li p {
     margin-left: 10px;
-    margin-right: 320px;
 }
-.main h3 {
+.main-div button {
     cursor: pointer;
+    border: none;
+    font-size: 3rem;
+    background: none;
+    margin-right: 5px;
+    margin-left: 0;
 }
-.main h3:hover{
-    background-image: gray;
+.main-div ul input {
+    margin-left: auto;
+    margin-right: 5px;
+    width:  23px;     
+    height: 23px;  
 }

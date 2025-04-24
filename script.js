@@ -11,10 +11,8 @@ form.addEventListener('submit', (e) => {
     let input = formInput.value;
 
     task = new ToDo(id, input, '');
-    
     array.pushTaskInArray(task);
     array.createListElement(id, input);
-   
     formInput.value = '';
 })
 list.addEventListener('click', (e) => {

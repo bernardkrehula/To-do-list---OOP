@@ -13,7 +13,6 @@ class ToDoList {
 
   pushTaskInArray(createdTask){
    this.toDoListArray.push(createdTask);
-   console.log(this.toDoListArray)
   }
 
   isTaskChecked(checked, listId, selectedList){
@@ -35,9 +34,7 @@ class ToDoList {
   }
 
   removeTask(listId){
-    this.toDoListArray.filter(task => task.id != listId);
-    console.log(listId)
-    console.log(this.toDoListArray)
+    this.toDoListArray = this.toDoListArray.filter(task => task.id != listId);
   }
 }
 array = new ToDoList();

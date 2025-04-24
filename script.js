@@ -2,19 +2,20 @@ const form = document.querySelector('.main');
 const list = document.querySelector('.main-div ul');
 const formInput = document.querySelector('.main input');
 
-
-let toDoListArray = [];
-
 let task;
+let array;
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const id = crypto.randomUUID();
     let input = formInput.value;
 
-    task = new ToDoList(id, input, '');
-    task.pushTaskInArray();
-    task.createListElement(id, input);
+    task = new ToDo(id, input, '');
+    
+    array.pushTaskInArray(task);
+    
+    // task.pushTaskInArray();
+    // task.createListElement(id, input);
     formInput.value = '';
 })
 list.addEventListener('click', (e) => {

@@ -4,18 +4,6 @@ class ToDo {
       this.task = task;
       this.isChecked = isChecked;
     }
-
-    isTaskChecked(checked, listId, selectedList){
-      let object = toDoListArray.find(task => task.id == listId);
-      object.isChecked = checked;
-  
-      if(object.isChecked){
-        selectedList.style.textDecoration = 'line-through';
-      }
-      else {
-        selectedList.style.textDecoration = '';
-      }
-    }
 }
 
 class ToDoList {
@@ -25,8 +13,19 @@ class ToDoList {
 
   pushTaskInArray(createdTask){
    this.toDoListArray.push(createdTask);
-   console.log(createdTask)
    console.log(this.toDoListArray)
+  }
+
+  isTaskChecked(checked, listId, selectedList){
+    let object = this.toDoListArray.find(task => task.id == listId);
+    object.isChecked = checked;
+
+    if(object.isChecked){
+      selectedList.style.textDecoration = 'line-through';
+    }
+    else {
+      selectedList.style.textDecoration = '';
+    }
   }
   createListElement(id, input){
     let html = `
@@ -36,7 +35,9 @@ class ToDoList {
   }
 
   removeTask(listId){
-    toDoListArray = toDoListArray.filter(task => task.id != listId);
+    this.toDoListArray.filter(task => task.id != listId);
+    console.log(listId)
+    console.log(this.toDoListArray)
   }
 }
 array = new ToDoList();

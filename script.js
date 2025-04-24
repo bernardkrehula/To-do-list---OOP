@@ -13,9 +13,8 @@ form.addEventListener('submit', (e) => {
     task = new ToDo(id, input, '');
     
     array.pushTaskInArray(task);
-    
-    // task.pushTaskInArray();
-    // task.createListElement(id, input);
+    array.createListElement(id, input);
+   
     formInput.value = '';
 })
 list.addEventListener('click', (e) => {
@@ -25,12 +24,12 @@ list.addEventListener('click', (e) => {
     const checkBox = e.target.closest('input');
   
     if(removeBtn){
-        task.removeTask(listId);
+        array.removeTask(listId);
         list.removeChild(selectedList)
     }
     
     if(checkBox){
-        task.isTaskChecked(checkBox.checked, listId, selectedList);
+        array.isTaskChecked(checkBox.checked, listId, selectedList);
     }
 })
 
